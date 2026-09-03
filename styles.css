@@ -1,6 +1,7 @@
 :root {
-  --ink: #f6f2e9;
-  --line: rgba(246, 242, 233, 0.35);
+  --nav-ink: #17130f;
+  --hero-ink: #3b171c;
+  --line: rgba(23, 19, 15, 0.28);
   --header-height: 94px;
 }
 
@@ -15,7 +16,7 @@ html {
 body {
   margin: 0;
   background: #171713;
-  color: var(--ink);
+  color: var(--nav-ink);
 }
 
 button,
@@ -27,17 +28,37 @@ a {
   position: relative;
   min-height: 100svh;
   isolation: isolate;
-  background:
-    linear-gradient(180deg, rgba(8, 8, 6, 0.42) 0%, transparent 34%),
-    url("image_assets/main_background.jpg") center 28% / cover no-repeat;
+  background: url("image_assets/main_background.jpg") center 28% / cover no-repeat;
 }
 
 .hero-shade {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(7, 7, 5, 0.22), transparent 35%, rgba(7, 7, 5, 0.12));
+  background:
+    linear-gradient(180deg, rgba(241, 233, 218, 0.18) 0%, transparent 24%),
+    linear-gradient(90deg, rgba(241, 233, 218, 0.32) 0%, rgba(241, 233, 218, 0.16) 34%, transparent 62%);
   pointer-events: none;
+}
+
+.hero-copy {
+  position: absolute;
+  top: 44%;
+  left: clamp(1.5rem, 5vw, 6rem);
+  width: min(42vw, 42rem);
+  padding-right: clamp(2rem, 7vw, 8rem);
+  transform: translateY(-35%);
+}
+
+.hero-copy h1 {
+  margin: 0;
+  color: var(--hero-ink);
+  font-family: "Cardo", serif;
+  font-size: clamp(3.2rem, 6.8vw, 7.7rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 
 .site-header {
@@ -126,6 +147,18 @@ a {
     grid-column: 1 / -1;
     grid-row: 2;
     gap: clamp(1.25rem, 6vw, 3.5rem);
+  }
+
+  .hero-copy {
+    top: auto;
+    bottom: 10vh;
+    width: min(76vw, 35rem);
+    padding-right: 0;
+    transform: none;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(3rem, 10vw, 5.5rem);
   }
 }
 
